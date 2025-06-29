@@ -1,0 +1,20 @@
+---
+
+services:
+  morvie-admin-react:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: morvie-admin-react
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - morvie_custom_network
+    
+networks:
+  morvie_custom_network:
+    driver: bridge
+    external: true
+    name: morvie_custom_network
