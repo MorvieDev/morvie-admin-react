@@ -1,0 +1,55 @@
+name: Build and Deploy Admin React App
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**'
+  
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-22.04
+    
+    steps:
+      - name: Get Token from GitHub App
+        id: get_workflow_token
+        uses: peter-murray/workflow-application-token-action@v2
+        with:
+          application_id: ${{ vars.MORVIE_DEV_APP_ID }}
+          application_private_key: ${{ secrets.MORVIE_DEV_APP_KEY }}
+
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ steps.get_workflow_token.outputs.token }}
+          repository: MorvieDev/morvie-frontend-react
+
+
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            set -e
+            SERVICE_PATH=/morvie/morvie-admin-react
+            
+            if [ ! -d "/morvie/morvie-admin-react/.git" ]; then
+              git clone https://x-access-token:${{ steps.get_workflow_token.outputs.token }}@github.com/MorvieDev/morvie-admin-react.git /morvie/morvie-admin-react
+            fi
+            
+            cd /morvie/morvie-admin-react
+            git remote set-url origin https://x-access-token:${{ steps.get_workflow_token.outputs.token }}@github.com/MorvieDev/morvie-admin-react.git
+            git pull
+            
+            rm -rf node_modules
+            
+            rm -rf dist
+            
+            rm package-lock.json
+            
+            docker compose up -d --build
