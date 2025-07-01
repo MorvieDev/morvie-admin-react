@@ -48,10 +48,6 @@ jobs:
             
             rm -rf node_modules
             
-            rm -rf dist
-            
             rm -rf package-lock.json
-
-            npm install
             
             docker compose up -d --build
