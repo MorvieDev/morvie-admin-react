@@ -12,7 +12,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     <div className="flex h-screen bg-gradient-to-br from-background to-background/95 overflow-hidden">
 
       <Sidebar open={sidebarOpen} setOpenAction={setSidebarOpen}
-                              userRole={'admin'} userName={'Anton'} userEmail={'anton@gmail.com'}/>
+                              userRole={'moderator'} userName={'Anton'} userEmail={'anton@gmail.com'}/>
 
       <div className="flex flex-col flex-1 overflow-hidden">
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
