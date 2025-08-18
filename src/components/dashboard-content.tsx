@@ -1,6 +1,6 @@
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/src/components/ui/card"
-import {VideoTable} from "@/src/components/video-table"
-import {StatCard} from "@/src/components/stat-card"
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card"
+import {VideoTable} from "@/components/video-table"
+import {StatCard} from "@/components/stat-card"
 import {Eye, Film, TrendingUp, Users} from "lucide-react"
 
 export function DashboardContent() {

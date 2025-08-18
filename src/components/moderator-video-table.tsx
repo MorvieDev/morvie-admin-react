@@ -1,6 +1,6 @@
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/src/components/ui/table"
-import {Badge} from "@/src/components/ui/badge"
-import {Button} from "@/src/components/ui/button"
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table"
+import {Badge} from "@/components/ui/badge"
+import {Button} from "@/components/ui/button"
 import {MoreHorizontal, Play} from "lucide-react"
 import {
     DropdownMenu,
@@ -9,7 +9,7 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/src/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu"
 
 const videos = [
   {

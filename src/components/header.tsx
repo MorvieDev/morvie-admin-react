@@ -3,8 +3,8 @@
 import Link from "next/link"
 import {usePathname} from "next/navigation"
 import {Menu, Search, User} from "lucide-react"
-import {Button} from "@/src/components/ui/button"
-import {Input} from "@/src/components/ui/input"
+import {Button} from "@/components/ui/button"
+import {Input} from "@/components/ui/input"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,15 +12,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/src/components/ui/dropdown-menu"
-import {NotificationPanel} from "@/src/components/notification-panel"
+} from "@/components/ui/dropdown-menu"
+import {NotificationPanel} from "@/components/notification-panel"
 
 interface HeaderProps {
   sidebarOpen: boolean
-  setSidebarOpen: (open: boolean) => void
+  setSidebarOpenAction: (open: boolean) => void
 }
 
-export function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
+export function Header({ sidebarOpen, setSidebarOpenAction }: HeaderProps) {
   const pathname = usePathname()
 
   const isAdmin = pathname.includes("/admin")
@@ -29,7 +29,7 @@ export function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b border-border/40 bg-background px-4 sm:px-6">
-      <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setSidebarOpen(!sidebarOpen)}>
+      <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setSidebarOpenAction(!sidebarOpen)}>
         <Menu className="h-5 w-5" />
         <span className="sr-only">Toggle Menu</span>
       </Button>

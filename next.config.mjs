@@ -1,6 +1,6 @@
-/** @type {import('next').NextConfig} */
+/** @types {import('next').NextConfig} */
 const nextConfig = {
-  basePath: '/admin',
+  basePath: '/MorviePanel',
   eslint: {
     ignoreDuringBuilds: true,
   },

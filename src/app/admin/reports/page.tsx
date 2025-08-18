@@ -1,5 +1,5 @@
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/src/components/ui/card"
-import {ReportTable} from "@/src/components/report-table"
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card"
+import {ReportTable} from "@/components/report-table"
 
 export default function AdminReports() {
   return (

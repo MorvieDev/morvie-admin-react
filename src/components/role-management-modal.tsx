@@ -9,14 +9,14 @@ import {
     DialogFooter,
     DialogHeader,
     DialogTitle,
-} from "@/src/components/ui/dialog"
-import {Button} from "@/src/components/ui/button"
-import {Label} from "@/src/components/ui/label"
-import {RadioGroup, RadioGroupItem} from "@/src/components/ui/radio-group"
-import {Switch} from "@/src/components/ui/switch"
-import {Separator} from "@/src/components/ui/separator"
-import {Avatar, AvatarFallback, AvatarImage} from "@/src/components/ui/avatar"
-import {Badge} from "@/src/components/ui/badge"
+} from "@/components/ui/dialog"
+import {Button} from "@/components/ui/button"
+import {Label} from "@/components/ui/label"
+import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group"
+import {Switch} from "@/components/ui/switch"
+import {Separator} from "@/components/ui/separator"
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar"
+import {Badge} from "@/components/ui/badge"
 
 export type UserRole = "admin" | "moderator"
 
@@ -38,8 +38,8 @@ export interface UserData {
 interface RoleManagementModalProps {
   user: UserData | null
   open: boolean
-  onOpenChange: (open: boolean) => void
-  onSave: (userId: string, role: UserRole, permissions: Permission[]) => void
+  onOpenChangeAction: (open: boolean) => void
+  onSaveAction: (userId: string, role: UserRole, permissions: Permission[]) => void
 }
 
 // Define permission sets for each role
@@ -98,7 +98,7 @@ const rolePermissions: Record<UserRole, Permission[]> = {
   // ],
 }
 
-export function RoleManagementModal({ user, open, onOpenChange, onSave }: RoleManagementModalProps) {
+export function RoleManagementModal({ user, open, onOpenChangeAction, onSaveAction }: RoleManagementModalProps) {
   const [selectedRole, setSelectedRole] = useState<UserRole>(user?.role || "admin")
   const [permissions, setPermissions] = useState<Permission[]>(
     user ? [...rolePermissions[user.role]] : [...rolePermissions.admin],
@@ -128,8 +128,8 @@ export function RoleManagementModal({ user, open, onOpenChange, onSave }: RoleMa
 
   const handleSave = () => {
     if (user) {
-      onSave(user.id, selectedRole, permissions)
-      onOpenChange(false)
+      onSaveAction(user.id, selectedRole, permissions)
+      onOpenChangeAction(false)
     }
   }
 
@@ -149,7 +149,7 @@ export function RoleManagementModal({ user, open, onOpenChange, onSave }: RoleMa
   if (!user) return null
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={onOpenChangeAction}>
       <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Manage User Role & Permissions</DialogTitle>
@@ -258,7 +258,7 @@ export function RoleManagementModal({ user, open, onOpenChange, onSave }: RoleMa
         <DialogFooter className="flex items-center justify-between sm:justify-between">
           <div className="text-sm text-muted-foreground">Last updated: {new Date().toLocaleDateString()}</div>
           <div className="flex gap-2">
-            <Button variant="outline" onClick={() => onOpenChange(false)}>
+            <Button variant="outline" onClick={() => onOpenChangeAction(false)}>
               <X className="mr-2 h-4 w-4" />
               Cancel
             </Button>

@@ -2,13 +2,13 @@
 
 import type React from "react"
 import {useState} from "react"
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/src/components/ui/card"
-import {Button} from "@/src/components/ui/button"
-import {Textarea} from "@/src/components/ui/textarea"
-import {RadioGroup, RadioGroupItem} from "@/src/components/ui/radio-group"
-import {Label} from "@/src/components/ui/label"
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card"
+import {Button} from "@/components/ui/button"
+import {Textarea} from "@/components/ui/textarea"
+import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group"
+import {Label} from "@/components/ui/label"
 import {Send, Shield, ShieldAlert, User} from "lucide-react"
-import {toast} from "@/src/components/ui/use-toast"
+import {toast} from "@/components/ui/use-toast"
 
 export function RoleRequestForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)

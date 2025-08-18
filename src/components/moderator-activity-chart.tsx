@@ -1,7 +1,7 @@
 "use client"
 
 import {CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, XAxis, YAxis} from "recharts"
-import {ChartContainer, ChartTooltip, ChartTooltipContent} from "@/src/components/ui/chart"
+import {ChartContainer, ChartTooltip, ChartTooltipContent} from "@/components/ui/chart"
 
 const data = [
   { name: "Mon", uploads: 2, reviews: 5 },
