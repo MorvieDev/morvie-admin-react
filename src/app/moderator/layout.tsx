@@ -2,8 +2,8 @@
 
 import type React from "react"
 import {useState} from "react"
-import {Header} from "@/src/components/header"
-import {Sidebar} from "@/src/components/sidebar";
+import {Header} from "@/components/header"
+import {Sidebar} from "@/components/sidebar";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(true)
@@ -12,10 +12,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     <div className="flex h-screen bg-gradient-to-br from-background to-background/95 overflow-hidden">
 
       <Sidebar open={sidebarOpen} setOpenAction={setSidebarOpen}
-                              userRole={'moderator'} userName={'Anton'} userEmail={'anton@gmail.com'}/>
+                              userRole={'moderator'} userName={'Temp user'} userEmail={'temp@gmail.com'}/>
 
       <div className="flex flex-col flex-1 overflow-hidden">
-        <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        <Header sidebarOpen={sidebarOpen} setSidebarOpenAction={setSidebarOpen} />
         <main className="flex-1 overflow-y-auto p-4 md:p-6">{children}</main>
       </div>
     </div>

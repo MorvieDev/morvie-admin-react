@@ -3,7 +3,7 @@
 import type React from "react"
 import {useState} from "react"
 import {Bell, Check, Clock, Film, Flag, Info, User} from "lucide-react"
-import {Button} from "@/src/components/ui/button"
+import {Button} from "@/components/ui/button"
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -12,8 +12,8 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/src/components/ui/dropdown-menu"
-import {cn} from "@/src/lib/utils"
+} from "@/components/ui/dropdown-menu"
+import {cn} from "@/lib/utils"
 import {useRouter} from "next/navigation"
 
 type NotificationType = "video" | "user" | "report" | "system"

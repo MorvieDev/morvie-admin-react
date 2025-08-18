@@ -1,6 +1,6 @@
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/src/components/ui/card"
-import {ModeratorVideoTable} from "@/src/components/moderator-video-table"
-import {Button} from "@/src/components/ui/button"
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card"
+import {ModeratorVideoTable} from "@/components/moderator-video-table"
+import {Button} from "@/components/ui/button"
 import {Plus} from "lucide-react"
 import Link from "next/link"
 

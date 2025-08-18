@@ -1,11 +1,11 @@
 "use client"
 
 import {useState} from "react"
-import {Input} from "@/src/components/ui/input"
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/src/components/ui/card"
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/src/components/ui/select"
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/src/components/ui/tabs"
-import {VideoTable} from "@/src/components/video-table"
+import {Input} from "@/components/ui/input"
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card"
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select"
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
+import {VideoTable} from "@/components/video-table"
 import {Search} from "lucide-react"
 
 export default function AdminVideosPage() {

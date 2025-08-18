@@ -1,13 +1,13 @@
 "use client"
 
 import {useState} from "react"
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/src/components/ui/table"
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/src/components/ui/card"
-import {Badge} from "@/src/components/ui/badge"
-import {Avatar, AvatarFallback, AvatarImage} from "@/src/components/ui/avatar"
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/src/components/ui/select"
-import {Input} from "@/src/components/ui/input"
-import {Button} from "@/src/components/ui/button"
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table"
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card"
+import {Badge} from "@/components/ui/badge"
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar"
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select"
+import {Input} from "@/components/ui/input"
+import {Button} from "@/components/ui/button"
 import {Download, Filter, Search} from "lucide-react"
 
 // Mock audit log data

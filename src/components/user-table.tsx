@@ -1,9 +1,9 @@
 "use client"
 
 import {useState} from "react"
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/src/components/ui/table"
-import {Badge} from "@/src/components/ui/badge"
-import {Button} from "@/src/components/ui/button"
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table"
+import {Badge} from "@/components/ui/badge"
+import {Button} from "@/components/ui/button"
 import {MoreHorizontal, Shield, ShieldAlert, User} from "lucide-react"
 import {
     DropdownMenu,
@@ -12,10 +12,10 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/src/components/ui/dropdown-menu"
-import {Avatar, AvatarFallback, AvatarImage} from "@/src/components/ui/avatar"
+} from "@/components/ui/dropdown-menu"
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar"
 import {type Permission, RoleManagementModal, type UserData, type UserRole} from "./role-management-modal"
-import {toast} from "@/src/components/ui/use-toast"
+import {toast} from "@/components/ui/use-toast"
 import {useRouter} from "next/navigation"
 
 const users = [
@@ -228,8 +228,8 @@ export function UserTable() {
       <RoleManagementModal
         user={selectedUser}
         open={roleModalOpen}
-        onOpenChange={setRoleModalOpen}
-        onSave={handleSaveRoleChanges}
+        onOpenChangeAction={setRoleModalOpen}
+        onSaveAction={handleSaveRoleChanges}
       />
     </>
   )

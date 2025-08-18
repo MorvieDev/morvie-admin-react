@@ -3,21 +3,21 @@
 import type React from "react"
 import {useEffect, useState} from "react"
 import {useRouter} from "next/navigation"
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/src/components/ui/card"
-import {Button} from "@/src/components/ui/button"
-import {Input} from "@/src/components/ui/input"
-import {Label} from "@/src/components/ui/label"
-import {Switch} from "@/src/components/ui/switch"
-import {Separator} from "@/src/components/ui/separator"
-import {Avatar, AvatarFallback, AvatarImage} from "@/src/components/ui/avatar"
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card"
+import {Button} from "@/components/ui/button"
+import {Input} from "@/components/ui/input"
+import {Label} from "@/components/ui/label"
+import {Switch} from "@/components/ui/switch"
+import {Separator} from "@/components/ui/separator"
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar"
 import {ArrowLeft, Check, Shield, ShieldAlert, User} from "lucide-react"
-import {toast} from "@/src/components/ui/use-toast"
+import {toast} from "@/components/ui/use-toast"
 import Link from "next/link"
-import {RadioGroup, RadioGroupItem} from "@/src/components/ui/radio-group"
-import {Badge} from "@/src/components/ui/badge"
+import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group"
+import {Badge} from "@/components/ui/badge"
 
 // Mock user data
-const users = [
+const users: User[] = [
   {
     id: "USR-2023-001",
     name: "John Doe",
@@ -65,11 +65,21 @@ const users = [
   },
 ]
 
+type User = {
+    id: string
+    name: string
+    email: string
+    role: "admin" | "moderator" | "creator" | "user"
+    status: "active" | "suspended" | "banned"
+    joinDate: string
+    avatar?: string
+}
+
 export default function EditUserPage({ params }: { params: { id: string } }) {
   const router = useRouter()
   const userId = params.id
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<User>()
   const [formData, setFormData] = useState({
     name: "",
     email: "",

@@ -1,10 +1,10 @@
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/src/components/ui/card"
-import {Button} from "@/src/components/ui/button"
-import {Input} from "@/src/components/ui/input"
-import {Label} from "@/src/components/ui/label"
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/src/components/ui/tabs"
-import {Switch} from "@/src/components/ui/switch"
-import {Textarea} from "@/src/components/ui/textarea"
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card"
+import {Button} from "@/components/ui/button"
+import {Input} from "@/components/ui/input"
+import {Label} from "@/components/ui/label"
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
+import {Switch} from "@/components/ui/switch"
+import {Textarea} from "@/components/ui/textarea"
 
 export default function ModeratorSettings() {
   return (
