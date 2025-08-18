@@ -3,18 +3,18 @@
 import type React from "react"
 import {useEffect, useState} from "react"
 import {useRouter} from "next/navigation"
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/src/components/ui/card"
-import {Button} from "@/src/components/ui/button"
-import {Input} from "@/src/components/ui/input"
-import {Label} from "@/src/components/ui/label"
-import {Textarea} from "@/src/components/ui/textarea"
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/src/components/ui/select"
-import {Switch} from "@/src/components/ui/switch"
-import {Separator} from "@/src/components/ui/separator"
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card"
+import {Button} from "@/components/ui/button"
+import {Input} from "@/components/ui/input"
+import {Label} from "@/components/ui/label"
+import {Textarea} from "@/components/ui/textarea"
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select"
+import {Switch} from "@/components/ui/switch"
+import {Separator} from "@/components/ui/separator"
 import {ArrowLeft, Check, Upload} from "lucide-react"
-import {toast} from "@/src/components/ui/use-toast"
+import {toast} from "@/components/ui/use-toast"
 import Link from "next/link"
-import {Badge} from "@/src/components/ui/badge"
+import {Badge} from "@/components/ui/badge"
 
 // Mock video data
 const videos = [
@@ -74,11 +74,30 @@ const videos = [
   },
 ]
 
+type Video = {
+    id: string
+    title: string
+    description: string
+    category: string
+    tags: string[]
+    status: string
+    visibility: string
+    views: string
+    likes: string
+    comments: string
+    duration: string
+    date: string
+    thumbnail: string
+    allowComments: boolean
+    allowRatings: boolean
+    monetized: boolean
+}
+
 export default function EditVideoPage({ params }: { params: { id: string } }) {
   const router = useRouter()
   const videoId = params.id
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [video, setVideo] = useState<any>(null)
+  const [video, setVideo] = useState<Video>()
   const [formData, setFormData] = useState({
     title: "",
     description: "",

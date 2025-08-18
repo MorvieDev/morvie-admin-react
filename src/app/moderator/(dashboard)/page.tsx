@@ -1,8 +1,8 @@
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/src/components/ui/card"
-import {ModeratorVideoTable} from "@/src/components/moderator-video-table"
-import {StatCard} from "@/src/components/stat-card"
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card"
+import {ModeratorVideoTable} from "@/components/moderator-video-table"
+import {StatCard} from "@/components/stat-card"
 import {CheckCircle, Clock, Film, Flag} from "lucide-react"
-import {ModeratorActivityChart} from "@/src/components/moderator-activity-chart"
+import {ModeratorActivityChart} from "@/components/moderator-activity-chart"
 
 export default function ModeratorDashboard() {
   return (
@@ -23,7 +23,7 @@ export default function ModeratorDashboard() {
         <Card className="lg:col-span-4 border-border/40">
           <CardHeader>
             <CardTitle>My Recent Uploads</CardTitle>
-            <CardDescription>Videos you've recently added to the platform</CardDescription>
+            <CardDescription>Videos you&apos;ve recently added to the platform</CardDescription>
           </CardHeader>
           <CardContent>
             <ModeratorVideoTable />

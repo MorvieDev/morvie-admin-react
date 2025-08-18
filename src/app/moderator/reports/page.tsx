@@ -1,13 +1,13 @@
 "use client"
 
 import {useState} from "react"
-import {Input} from "@/src/components/ui/input"
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/src/components/ui/card"
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/src/components/ui/select"
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/src/components/ui/tabs"
-import {ModeratorReportTable} from "@/src/components/moderator-report-table"
+import {Input} from "@/components/ui/input"
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card"
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select"
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
+import {ModeratorReportTable} from "@/components/moderator-report-table"
 import {AlertCircle, Search} from "lucide-react"
-import {Alert, AlertDescription, AlertTitle} from "@/src/components/ui/alert"
+import {Alert, AlertDescription, AlertTitle} from "@/components/ui/alert"
 
 export default function ModeratorReportsPage() {
   const [searchQuery, setSearchQuery] = useState("")
