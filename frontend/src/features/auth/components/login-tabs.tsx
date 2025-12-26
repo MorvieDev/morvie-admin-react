@@ -1,10 +1,10 @@
-﻿import {FacebookLoginForm} from "@features/auth/components/forms/facebook-login-form";
-import {GoogleLoginForm} from "@features/auth/components/forms/google-login-form";
-import {EmailLoginForm} from "@features/auth/components/forms/email-login-form";
+﻿import {FacebookLoginForm} from "@/features/auth/components/forms/facebook-login-form";
+import {GoogleLoginForm} from "@/features/auth/components/forms/google-login-form";
+import {EmailLoginForm} from "@/features/auth/components/forms/email-login-form";
 import {Tabs, TabsList, TabsTrigger} from "@/components/ui/tabs";
-import {useEmailLogin} from "@features/auth/hooks/use-email-login";
-import {useGoogleLogin} from "@features/auth/hooks/use-google-login";
-import {useFacebookLogin} from "@features/auth/hooks/use-facebook-login";
+import {useEmailLogin} from "@/features/auth/hooks/use-email-login";
+import {useGoogleLogin} from "@/features/auth/hooks/use-google-login";
+import {useFacebookLogin} from "@/features/auth/hooks/use-facebook-login";
 
 export function LoginTabs(){
     const { login: emailLogin } = useEmailLogin();

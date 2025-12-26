@@ -3,9 +3,9 @@ import { Input } from "@/components/ui/input";
 import { TabsContent } from "@/components/ui/tabs";
 import React, {useState} from "react";
 import {Label} from "@/components/ui/label";
-import {UserRole} from "@features/auth/types/auth";
-import {EmailLoginButton} from "@features/auth/components/buttons/email-login-button";
-import {RoleSelect} from "@features/auth/components/role-select";
+import {UserRole} from "@/features/auth/types/auth";
+import {EmailLoginButton} from "@/features/auth/components/buttons/email-login-button";
+import {RoleSelect} from "@/features/auth/components/role-select";
 
 interface EmailLoginFormProps {
     login: (email: string, password: string, role: UserRole) => void;
