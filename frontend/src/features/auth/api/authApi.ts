@@ -1,5 +1,5 @@
 ﻿import { http } from '@/core/api/http';
-import { LoginEmailRequest, LoginGoogleRequest, LoginFacebookRequest, RefreshTokenRequest, RefreshTokenResponse, LoginResponse } from '@features/auth/types/auth';
+import { LoginEmailRequest, LoginGoogleRequest, LoginFacebookRequest, RefreshTokenRequest, RefreshTokenResponse, LoginResponse } from '@/features/auth/types/auth';
 
 export const authApi = {
     login_email: (data: LoginEmailRequest) =>
@@ -13,7 +13,7 @@ export const authApi = {
         http.post<LoginResponse>('/api/v1/authentication/sign-in-facebook-management', data),
 
 
-    refreshToken: (data: RefreshTokenRequest) =>
+    refresh_token: (data: RefreshTokenRequest) =>
         http.post<RefreshTokenResponse>('/api/v1/authentication/refresh-token', { data }),
 
 
