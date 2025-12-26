@@ -1,4 +1,4 @@
-﻿import {UserRole} from "@features/auth/types/auth";
+﻿import {UserRole} from "@/features/auth/types/auth";
 
 type Props = {
     onChange: (role: UserRole) => void;

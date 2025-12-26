@@ -1,6 +1,6 @@
 /** @types {import('next').NextConfig} */
 const nextConfig = {
-  basePath: '/MorviePanel',
+  basePath: '',
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -10,6 +10,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  output: "standalone",
 }
 
 export default nextConfig
