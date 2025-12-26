@@ -64,7 +64,7 @@ export function Header({ sidebarOpen, setSidebarOpenAction }: HeaderProps) {
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
-              <Link href="/public" className="text-red-500 hover:text-red-600">
+              <Link href="/frontend/public" className="text-red-500 hover:text-red-600">
                 Logout
               </Link>
             </DropdownMenuItem>

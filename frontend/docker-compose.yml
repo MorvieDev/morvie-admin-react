@@ -3,7 +3,7 @@
 services:
   morvie-admin-react:
     build:
-      context: .
+      context: ..
       dockerfile: Dockerfile
     container_name: morvie-admin-react
     expose:

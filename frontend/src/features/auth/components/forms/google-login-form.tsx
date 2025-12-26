@@ -2,9 +2,9 @@
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import {Label} from "@/components/ui/label";
 import {useState} from "react";
-import {GoogleLoginButton} from "@features/auth/components/buttons/google-login-button";
-import {UserRole} from "@features/auth/types/auth";
-import {RoleSelect} from "@features/auth/components/role-select";
+import {GoogleLoginButton} from "@/features/auth/components/buttons/google-login-button";
+import {UserRole} from "@/features/auth/types/auth";
+import {RoleSelect} from "@/features/auth/components/role-select";
 
 interface GoogleLoginFormProps {
     login: (role: UserRole) => void;

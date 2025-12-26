@@ -1,10 +1,10 @@
 ﻿import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import {TabsContent} from "@/components/ui/tabs";
 import {Label} from "@/components/ui/label";
-import {FacebookLoginButton} from "@features/auth/components/buttons/facebook-login-button";
-import {UserRole} from "@features/auth/types/auth";
+import {FacebookLoginButton} from "@/features/auth/components/buttons/facebook-login-button";
+import {UserRole} from "@/features/auth/types/auth";
 import React, {useState} from "react";
-import {RoleSelect} from "@features/auth/components/role-select";
+import {RoleSelect} from "@/features/auth/components/role-select";
 
 
 interface FacebookLoginFormProps {
