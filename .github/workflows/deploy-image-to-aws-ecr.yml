@@ -1,0 +1,74 @@
+name: Build and Deploy Admin React App
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**'
+
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-22.04
+
+    steps:
+      # 1. Get GitHub Token
+      - name: Get Token from GitHub App
+        id: get_workflow_token
+        uses: peter-murray/workflow-application-token-action@v2
+        with:
+          application_id: ${{ vars.MORVIE_DEV_APP_ID }}
+          application_private_key: ${{ secrets.MORVIE_DEV_APP_KEY }}
+
+      # 2. Checkout repo
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ steps.get_workflow_token.outputs.token }}
+          repository: MorvieDev/morvie-frontend-react
+
+      # 3. Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      # 4. Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 5. Build Next.js
+      - name: Build Next.js
+        run: npm run build
+
+      # 6. Configure AWS CLI
+      - name: Configure AWS
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      # 7. Login to ECR
+      - name: Login to ECR
+        id: login-ecr
+        run: |
+          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | \
+          docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+
+      # 8. Build Docker image
+      - name: Build Docker image
+        run: |
+          docker build -t ${{ secrets.AWS_ECS_ADMIN_PANEL_NAME }} . 
+
+      # 9. Tag Docker image for ECR
+      - name: Tag Docker image
+        run: |
+          docker tag ${{ secrets.AWS_ECS_ADMIN_PANEL_NAME }}:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.AWS_ECS_ADMIN_PANEL_NAME }}:latest
+
+      # 10. Push Docker image to ECR
+      - name: Push Docker image
+        run: |
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.AWS_ECS_ADMIN_PANEL_NAME }}:latest
